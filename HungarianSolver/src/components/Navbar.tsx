@@ -14,7 +14,7 @@ const Navbar: React.FC<NavBarProps> = ({
 }) => {
   return (
     <>
-      <div className="font-inter min-w-max border-b shadow-md dark:bg-slate-800 dark:text-slate-400 dark:shadow-white ">
+      <div className="font-inter min-w-max border-b shadow-md dark:bg-gradient-to-tr dark:from-slate-900 dark:to-slate-800 dark:text-slate-400 bg-gradient-to-tr from-slate-400 to-slate-50 ">
         <nav className="container mx-auto">
           <div className="flex items-center justify-between p-1">
             <NavLink to="/" className="flex items-center p-3 min-w-fit ">
@@ -27,7 +27,7 @@ const Navbar: React.FC<NavBarProps> = ({
                 Hungarian Solver
               </h1>
             </NavLink>
-            <div className="basis-3/5  justify-around items-center h-12 hidden md:flex">
+            <div className="basis-3/5  justify-around items-center h-12 hidden sm:flex">
               <NavLink
                 to="/solve"
                 className="border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-emerald-500 hover:scale-105 hover:border-emerald-800"
@@ -35,10 +35,10 @@ const Navbar: React.FC<NavBarProps> = ({
                 Solve
               </NavLink>
               <NavLink
-                to="/about"
+                to="/learn"
                 className="border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-violet-500 hover:scale-105 hover:border-violet-800"
               >
-                About
+                Learn
               </NavLink>
               <NavLink
                 to="/contact"
