@@ -38,9 +38,7 @@ const DropDownNav: React.FC<NavBarProps> = ({
           </Link>
         </div>
         <div className="hover:text-violet-500 hover:bg-gray-100 p-2 rounded">
-          <Link to="/about">
-            About <span></span>
-          </Link>
+          <Link to="/learn">Learn</Link>
         </div>
         <div className="hover:text-sky-500 hover:bg-gray-100 p-2 rounded">
           <Link to="/contact">

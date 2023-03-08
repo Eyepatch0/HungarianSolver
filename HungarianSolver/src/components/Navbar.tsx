@@ -27,22 +27,22 @@ const Navbar: React.FC<NavBarProps> = ({
                 Hungarian Solver
               </h1>
             </NavLink>
-            <div className="basis-3/5  justify-around items-center h-12 hidden sm:flex">
+            <div className="basis-2/4  justify-around items-center h-12 hidden sm:flex">
               <NavLink
                 to="/solve"
-                className="border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-emerald-500 hover:scale-105 hover:border-emerald-800"
+                className="bg-white dark:bg-black border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-emerald-500 hover:scale-105 hover:border-emerald-800"
               >
                 Solve
               </NavLink>
               <NavLink
                 to="/learn"
-                className="border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-violet-500 hover:scale-105 hover:border-violet-800"
+                className="bg-white dark:bg-black border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-violet-500 hover:scale-105 hover:border-violet-800"
               >
                 Learn
               </NavLink>
               <NavLink
                 to="/contact"
-                className="border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-sky-500 hover:scale-105 hover:border-sky-800"
+                className="bg-white dark:bg-black border rounded-md px-3 py-1 text-lg font-medium mx-1 md:mx-0 transition ease-in-out duration-200  hover:text-sky-500 hover:scale-105 hover:border-sky-800"
               >
                 Contact
               </NavLink>
@@ -85,7 +85,7 @@ const Navbar: React.FC<NavBarProps> = ({
                 </svg>
               </div>
             </div>
-            <div className="mr-2 md:hidden relative">
+            <div className="mr-2 sm:hidden relative">
               <button onClick={() => toggleVisibility()}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
