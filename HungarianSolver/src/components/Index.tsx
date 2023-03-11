@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Index: React.FC = () => {
   return (
     <>
-      <div className="bg-gradient-to-tl from-slate-50 to-slate-400  dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-700 flex justify-center items-center min-h-[90vh]">
+      <div className="bg-gradient-to-tl from-slate-50 to-slate-400  dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-700 flex justify-center items-center min-h-screen">
         <div className="container flex flex-col items-center justify-around min-h-[30vh] drop-shadow">
           <h1 className="text-5xl font-bold text-center dark:text-slate-100  text-slate-900 font-inter">
             Hungarian Solver

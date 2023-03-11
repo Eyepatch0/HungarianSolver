@@ -1,7 +1,7 @@
 const Learn = () => {
   return (
-    <div className="min-h-[90vh] bg-gradient-to-br from-slate-400 to-slate-50 flex justify-center items-center">
-      <div className="drop-shadow shadow-lg font-inter p-1 container min-h-[60vh] md:border-4 rounded-md flex flex-col justify-evenly border-violet-900 border bg-gradient-to-br from-violet-200 to-slate-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-400 to-slate-50 flex justify-center items-center dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-700">
+      <div className="drop-shadow shadow-lg font-inter p-1 container min-h-[60vh] md:border-4 rounded-md flex flex-col justify-evenly border-violet-900 border bg-gradient-to-br from-purple-200  to-slate-50 dark:bg-gradient-to-br dark:from-violet-900 dark:via-purple-700 dark:to-slate-900 dark:border-gray-600 dark:text-slate-400">
         <div>
           <h1 className="text-center font-bold text-3xl">
             The Hungarian Algorithm
