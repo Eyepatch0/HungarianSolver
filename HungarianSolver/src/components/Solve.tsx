@@ -6,6 +6,7 @@ import SolvedMatrix from "./SolvedMatrix";
 const Solve = () => {
   const [size, setSize] = useState<number>(3);
   const [matrix, setMatrix] = useState<number[][]>([]);
+  const [showMatrix, setShowMatrix] = useState<boolean>(false);
 
   const sizeValidator: (size: number) => boolean = (size) => {
     switch (true) {
@@ -34,6 +35,28 @@ const Solve = () => {
     setMatrix(newMatrix);
   };
 
+  const matrixReset = () => {
+    const newMatrix: number[][] = Array.from(Array(size), () =>
+      new Array(size).fill(0)
+    );
+    setMatrix(newMatrix);
+  };
+
+  const matrixShow = (matrix: number[][]) => {
+    matrix.flat(2).map((e) => {
+      if (Number.isNaN(e) || e < 0) {
+        alert("Please fill all the cells with valid numbers.");
+        setShowMatrix(false);
+        return;
+      }
+    });
+    setShowMatrix(true);
+  };
+
+  const matrixHide = () => {
+    setShowMatrix(false);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-400 to-slate-50 flex justify-center items-center dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-700">
       <div className="container border border-emerald-500 dark:border-emerald-900 md:border-4 rounded-lg min-h-[70vh] flex flex-col xl:flex-row font-inter text-slate-900 bg-gradient-to-bl from-emerald-400 via-green-200 to-emerald-400 dark:bg-gradient-to-bl dark:from-green-800 dark:via-emerald-400 dark:to-green-800 dark:text-slate-800">
@@ -44,7 +67,6 @@ const Solve = () => {
               <input
                 type="number"
                 id="matrixSize"
-                value={size}
                 onChange={(e) => setSize(parseInt(e.target.value))}
                 max={10}
                 maxLength={2}
@@ -59,7 +81,10 @@ const Solve = () => {
             <div className="p-5 basis-1/4 h-full flex justify-center items-center">
               <button
                 className="border border-emerald-700 rounded p-1 text-slate-100 bg-emerald-500 hover:bg-emerald-600 dark:bg-gradient-to-r dark:from-slate-700 dark:to-slate-800 hover:scale-105 transition ease-in-out"
-                onClick={() => matrixFiller(size)}
+                onClick={() => {
+                  matrixFiller(size);
+                  matrixHide();
+                }}
               >
                 Submit
               </button>
@@ -67,12 +92,22 @@ const Solve = () => {
           </div>
           <div className="flex justify-center items-center basis-3/4 h-full mx-2">
             {matrix.length > 0 && (
-              <InputMatrix matrix={matrix} matrixUpdater={matrixUpdater} />
+              <InputMatrix
+                matrix={matrix}
+                matrixUpdater={matrixUpdater}
+                matrixReset={matrixReset}
+                matrixShow={matrixShow}
+                matrixHide={matrixHide}
+              />
             )}
           </div>
         </div>
-        <div className="basis-1/2 border-t md:border-l">
-          {matrix.length > 0 && <SolvedMatrix />}
+        <div className="basis-1/2 border-t md:border-l md:border-t-0">
+          {!showMatrix ? (
+            <div>Solution</div>
+          ) : (
+            <SolvedMatrix matrix={matrix} showMatrix={showMatrix} />
+          )}
         </div>
       </div>
     </div>
