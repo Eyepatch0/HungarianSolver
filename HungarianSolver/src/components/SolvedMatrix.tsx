@@ -1,53 +1,42 @@
-import { useState, useEffect } from "react";
-
 import { SolvedMatrixProps } from "../types/SolvedMatrixProps";
-
 import GeneralMatrix from "./GeneralMatrix";
-import solution from "../utils/solution";
 
-const SovledMatrix: React.FC<SolvedMatrixProps> = ({ matrix, showMatrix }) => {
-  // const [rowMinimaMatrix, setRowMinimaMatrix] = useState<number[][]>([]);
-  // const [rowMin, setRowMin] = useState<number[]>([]);
-  // const [columnMinimaMatrix, setColumnMinimaMatrix] = useState<number[][]>([]);
-  // const [columnMin, setColumnMin] = useState<number[]>([]);
+// @ts-ignore
+import munkres from "munkres-js";
 
-  // useEffect(() => {
-  //   solve();
-  // }, [showMatrix]);
+const SolvedMatrix: React.FC<SolvedMatrixProps> = ({ matrix }) => {
+  const optimalCost: (matrix: number[][]) => [number, number[]] = (matrix) => {
+    const cost: number[] = munkres(matrix).map((e: number[]) => {
+      return matrix[e[0]][e[1]];
+    });
+    return [cost.reduce((a, b) => a + b, 0), cost];
+  };
 
-  // const solve = async () => {
-  //   await rowMinima();
-  // };
-
-  // const rowMinima = () => {
-  //   const rowMin = matrix.map((row) => Math.min(...row));
-  //   setRowMin(rowMin);
-  //   const rowMinimaMatrix = matrix.map((row, i) =>
-  //     row.map((col) => col - rowMin[i])
-  //   );
-  //   setRowMinimaMatrix(rowMinimaMatrix);
-  // };
-
-  // return (
-  //   <div>
-  //     <div className="flex flex-col items-center p-2">
-  //       <h2 className="font-semibold">Row Minima</h2>
-  //       <GeneralMatrix matrix={rowMinimaMatrix} rowMin={rowMin} />
-  //     </div>
-  //     <div>
-  //       <h2 className="font-semibold">Column Minima</h2>
-  //       <GeneralMatrix matrix={columnMinimaMatrix} />
-  //     </div>
-  //   </div>
-  // );
+  console.log(optimalCost(matrix));
   return (
-    <>
-      <div>
-        <GeneralMatrix matrix={matrix} />
-        <GeneralMatrix matrix={solution(matrix)} />
+    <div className="flex flex-col justify-around mt-2 h-full w-full font-inter">
+      <div className="border rounded-sm p-2 border-green-700 dark:border-green-900">
+        <h3 className="font-semibold text-left mb-2 px-1">
+          Optimal Assignment:
+        </h3>
+        <GeneralMatrix matrix={matrix} solved={munkres(matrix)} />
       </div>
-    </>
+      <div className="border rounded-sm p-2 border-green-700 dark:border-green-900">
+        <h3 className="font-semibold text-left mb-2 px-1">Optimal Value is:</h3>
+        <div className="flex font-medium justify-center items-center">
+          {optimalCost(matrix)[1].map((e, i) => {
+            if (i !== optimalCost(matrix)[1].length - 1) {
+              return <p key={i}>{` ${e} +`}</p>;
+            }
+            return <p key={i} className="mr-2">{`${e} =`}</p>;
+          })}
+          <p className="font-bold border rounded-lg  p-2 bg-orange-200 dark:bg-orange-400 dark:border-slate-700">
+            {optimalCost(matrix)[0]}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default SovledMatrix;
+export default SolvedMatrix;
