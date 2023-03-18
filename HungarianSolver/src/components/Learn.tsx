@@ -56,4 +56,5 @@ const Learn = () => {
     </div>
   );
 };
+// TODO: Redo this section with a better design.
 export default Learn;
