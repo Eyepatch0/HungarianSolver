@@ -40,4 +40,4 @@ HungarianSolver was made possible thanks to the following resources:
 
 ## Authors
 
-- Devloped by [@Eyepatch0](https://github.com/Eyepatch0)
+- Developed by [@Eyepatch0](https://github.com/Eyepatch0)
