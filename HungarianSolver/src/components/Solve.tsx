@@ -60,7 +60,7 @@ const Solve = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-400 to-slate-50 flex justify-center items-center dark:bg-gradient-to-br dark:from-slate-900 dark:to-slate-700">
-      <div className="container border border-emerald-500 dark:border-emerald-900 md:border-4 rounded-lg min-h-[70vh] flex flex-col xl:flex-row font-inter text-slate-900 bg-gradient-to-bl from-emerald-400 via-green-200 to-emerald-400 dark:bg-gradient-to-bl dark:from-green-800 dark:via-emerald-400 dark:to-green-800 dark:text-slate-800 drop-shadow">
+      <div className="container border border-emerald-500 dark:border-emerald-900 md:border-4 rounded-lg min-h-[90vh] sm:min-h-[70vh] flex flex-col xl:flex-row font-inter text-slate-900 bg-gradient-to-bl from-emerald-400 via-green-200 to-emerald-400 dark:bg-gradient-to-bl dark:from-green-800 dark:via-emerald-400 dark:to-green-800 dark:text-slate-800 drop-shadow">
         <div className="basis-1/2 border-b xl:border-b-0 xl:border-r flex flex-col justify-between drop-shadow-md">
           <div className="basis-1/4 flex items-center flex-col md:flex-row md:justify-center">
             <div className="flex flex-col text-md font-semibold p-5">
@@ -121,5 +121,7 @@ const Solve = () => {
     </div>
   );
 };
+
+// TODO: Add option for maximization.
 
 export default Solve;

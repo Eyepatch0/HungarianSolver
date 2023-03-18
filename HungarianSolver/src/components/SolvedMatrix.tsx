@@ -21,7 +21,7 @@ const SolvedMatrix: React.FC<SolvedMatrixProps> = ({ matrix }) => {
         </h3>
         <GeneralMatrix matrix={matrix} solved={munkres(matrix)} />
       </div>
-      <div className="border rounded-sm p-2 border-green-700 dark:border-green-900">
+      <div className="border rounded-sm p-2 border-green-700 dark:border-green-900 mt-2">
         <h3 className="font-semibold text-left mb-2 px-1">Optimal Value is:</h3>
         <div className="flex font-medium justify-center items-center">
           {optimalCost(matrix)[1].map((e, i) => {
